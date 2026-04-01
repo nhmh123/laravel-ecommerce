@@ -21,7 +21,8 @@
         <!-- SidebarSearch Form -->
         <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                    aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-sidebar">
                         <i class="fas fa-search fa-fw"></i>
@@ -32,11 +33,12 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
+                    <a href="{{ route('admin.products.index') }}" class="nav-link active">
                         <i class="nav-icon fas fa-box-open"></i>
                         <p>
                             Sản phẩm
@@ -45,21 +47,42 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ Route::has('admin.product.index') ? route('admin.product.index') : '#' }}" class="nav-link">
+                            <a href="{{ route('admin.products.index') }}" class="nav-link">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách sản phẩm</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ Route::has('admin.product.product_combo') ? route('admin.product.product_combo') : '#' }}" class="nav-link">
+                            <a href="{{ Route::has('admin.product.product_combo') ? route('admin.product.product_combo') : '#' }}"
+                                class="nav-link">
                                 <i class="fas fa-boxes nav-icon"></i>
                                 <p>Combo</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ Route::has('admin.product.product_service') ? route('admin.product.product_service') : '#' }}" class="nav-link">
-                                <i class="fas fa-concierge-bell nav-icon"></i>
+                            <a href="{{ Route::has('admin.product.product_service') ? route('admin.product.product_service') : '#' }}"
+                                class="nav-link">
+                                <i class="fab fa-usps nav-icon"></i>
                                 <p>Dịch vụ</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Settings Menu -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            Cài đặt
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-toggle-on nav-icon"></i>
+                                <p>Trạng thái sản phẩm</p>
                             </a>
                         </li>
                     </ul>
@@ -70,4 +93,3 @@
     </div>
     <!-- /.sidebar -->
 </aside>
-

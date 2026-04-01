@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->timestamps();
-            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('parent_id')->nullable();
         });
 
         Schema::enableForeignKeyConstraints();

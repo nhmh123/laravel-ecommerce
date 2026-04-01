@@ -1,0 +1,596 @@
+[
+    {
+        "name": "Điện thoại",
+        "slug": "/dtdd",
+        "groups": []
+    },
+    {
+        "name": "Laptop",
+        "slug": "/laptop",
+        "groups": []
+    },
+    {
+        "name": "Phụ kiện",
+        "slug": "/phu-kien",
+        "groups": [
+            {
+                "group_name": "Phụ kiện di động",
+                "items": [
+                    {
+                        "name": "Sạc dự phòng",
+                        "slug": "/sac-dtdd",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/99/61/9961578164909f8a9ee7678dc95feeb0.png"
+                    },
+                    {
+                        "name": "Sạc, cáp",
+                        "slug": "/sac-cap",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/6b/64/6b646ec5f1e9a726933ee31b86a32524.png"
+                    },
+                    {
+                        "name": "Ốp lưng điện thoại",
+                        "slug": "/op-lung-flipcover",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/34/02/3402dd9ba3457b84482572d10bcae84e.png"
+                    },
+                    {
+                        "name": "Ốp lưng máy tính bảng",
+                        "slug": "/op-lung-may-tinh-bang",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/83/60/836050bcf5e1c92dd8d9899bef9f039d.png"
+                    },
+                    {
+                        "name": "Miếng dán",
+                        "slug": "/mieng-dan-man-hinh",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/72/f4/72f4b3ee8f5c1b1a170d590b3a07256d.png"
+                    },
+                    {
+                        "name": "Miếng dán Camera",
+                        "slug": "/mieng-dan-camera",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/33/77/33770e364079ac9dd3888190bd574b8d.png"
+                    },
+                    {
+                        "name": "Túi đựng AirPods",
+                        "slug": "/tui-dung-airpods",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/24/66/2466de3fc4831f43afb0d69462130030.png"
+                    },
+                    {
+                        "name": "Quạt mini",
+                        "slug": "/quat-mini",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/96/c0/96c0f165b3ba8e00570f53737e108d9c.png"
+                    },
+                    {
+                        "name": "Bút tablet",
+                        "slug": "/phu-kien-thong-minh",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/3f/d5/3fd5723ac6f01521bd3d768d8ebc8d1a.png"
+                    },
+                    {
+                        "name": "Giá đỡ điện thoại/laptop/máy tính bảng",
+                        "slug": "/gia-do-dien-thoai",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/26/6f/266f538d2cee7899d54a8b5f57985d83.png"
+                    },
+                    {
+                        "name": "Dây đeo điện thoại",
+                        "slug": "/phu-kien-op-lung",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/01/d1/01d140b8ea3be3cdbf4b99299fd14969.png"
+                    },
+                    {
+                        "name": "Ống kinh điện thoại",
+                        "slug": "/ong-kinh-tele",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/ff/9a/ff9a1716ada03c1b0c3498b9bd6b6373.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Phụ kiện laptop, PC",
+                "items": [
+                    {
+                        "name": "Hub, cáp chuyển đổi",
+                        "slug": "/hub-chuyen-doi",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/e1/2d/e12deafa7615646e9cafc5bbd0667da8.png"
+                    },
+                    {
+                        "name": "Chuột máy tính",
+                        "slug": "/chuot-may-tinh",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/53/a6/53a6599a6fc414025b42c5435928008f.png"
+                    },
+                    {
+                        "name": "Bàn phím",
+                        "slug": "/ban-phim",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/7a/d3/7ad3598d5e291815bc6c7f98bb73d078.png"
+                    },
+                    {
+                        "name": "Router - Thiết bị mạng",
+                        "slug": "/thiet-bi-mang",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/f9/32/f93258b536d9a7c59b7746e533fb271f.png"
+                    },
+                    {
+                        "name": "Balo, túi chống sốc",
+                        "slug": "/tui-chong-soc",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/33/8b/338bb7d3763dee703562a108b497fc2f.png"
+                    },
+                    {
+                        "name": "Túi đựng phụ kiện",
+                        "slug": "/tui-dung-phu-kien",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/9e/d6/9ed6b66919dccf3d26fc864184149913.png"
+                    },
+                    {
+                        "name": "Phủ phím laptop",
+                        "slug": "/mieng-phu-ban-phim",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/c3/97/c397a6f5e562a5f3ad3084e4563d6dda.png"
+                    },
+                    {
+                        "name": "Phần mềm",
+                        "slug": "/phan-mem",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/bb/07/bb07512d2429a1b38cedd20b750b734c.png"
+                    },
+                    {
+                        "name": "Giá treo màn hình",
+                        "slug": "/gia-treo-man-hinh",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/7c/a7/7ca750e732738e17142f501ba33eb423.png"
+                    },
+                    {
+                        "name": "Đèn thông minh/livestream",
+                        "slug": "https://www.thegioididong.com/den-thong-minh",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/b9/ed/b9ed8fbbb77742a0b721bbf2bc6ca8ef.png"
+                    },
+                    {
+                        "name": "Miếng lót chuột",
+                        "slug": "/mieng-lot-chuot",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/b3/0e/b30ead80f9b691b781060ec46e8e2928.png"
+                    },
+                    {
+                        "name": "Bảng vẽ điện tử",
+                        "slug": "/bang-ve-dien-tu",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/58/c0/58c0179556e1f44469d351ad90cb325e.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Thiết bị âm thanh",
+                "items": [
+                    {
+                        "name": "Tai nghe Bluetooth",
+                        "slug": "/tai-nghe-bluetooth",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/7c/09/7c09cbc92ef23816aa7d857ba8e0e194.png"
+                    },
+                    {
+                        "name": "Tai nghe dây",
+                        "slug": "/tai-nghe-co-day",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/12/1c/121cd7cb1fc1750893b3f41436b12c85.png"
+                    },
+                    {
+                        "name": "Tai nghe chụp tai",
+                        "slug": "/tai-nghe-chup-tai",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/cf/9e/cf9e0eecbfc3e326f1c89f13b1ffe320.png"
+                    },
+                    {
+                        "name": "Tai nghe thể thao",
+                        "slug": "/tai-nghe-the-thao",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/38/f7/38f7bf684502b5aa0c7949f6d38a6a55.png"
+                    },
+                    {
+                        "name": "Loa",
+                        "slug": "/loa-laptop",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/76/6b/766be9586a3a82491ba8106b7e558605.png"
+                    },
+                    {
+                        "name": "Micro",
+                        "slug": "/micro-cac-loai",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/c7/13/c71369bc9b7b00cd99d8c8076e5a9e7e.png"
+                    },
+                    {
+                        "name": "Kính thông minh",
+                        "slug": "/mat-kinh",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/b1/c9/b1c980b2bcff1d88660d5e8d4095853b.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Camera",
+                "items": [
+                    {
+                        "name": "Camera Giám Sát",
+                        "slug": "/camera-giam-sat",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/af/70/af70e11a54ceeda4d04c41298016f615.png"
+                    },
+                    {
+                        "name": "Camera trong nhà",
+                        "slug": "/camera-giam-sat?g=camera-giam-sat",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/e8/0c/e80cc810cf5d743dc7e88c7031380c80.png"
+                    },
+                    {
+                        "name": "Camera ngoài trời",
+                        "slug": "/camera-giam-sat-camera-ngoai-troi",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/9e/e9/9ee9ae20f38eff97221f040a735752ce.png"
+                    },
+                    {
+                        "name": "Camera hành trình / hành động",
+                        "slug": "/camera-hanh-trinh-hanh-dong",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/f4/2a/f42aa8a01e29d247b177a997c808c990.png"
+                    },
+                    {
+                        "name": "Camera Năng Lượng Mặt Trời",
+                        "slug": "/camera-giam-sat-camera-nang-luong-mat-troi",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/5b/46/5b46309f2e80ca497b76f239ccf18829.png"
+                    },
+                    {
+                        "name": "Camera 4G",
+                        "slug": "/camera-giam-sat?g=camera-4g",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/18/9f/189f4355b6af9e13a9a6d8a05e862ce5.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Phụ kiện gaming",
+                "items": [
+                    {
+                        "name": "Chuột gaming",
+                        "slug": "/chuot-may-tinh-chuot-gaming",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/4d/c5/4dc5692050284aa3119430c8b77a1a41.png"
+                    },
+                    {
+                        "name": "Bàn phím gaming",
+                        "slug": "/ban-phim-gaming",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/7c/f2/7cf2df3939fd6d8966c1965cc781d02b.png"
+                    },
+                    {
+                        "name": "Tai nghe gaming",
+                        "slug": "/tai-nghe-gaming",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/25/71/2571e5bc85393230a9d8c793c0fb6ad3.png"
+                    },
+                    {
+                        "name": "Miếng lót chuột",
+                        "slug": "/mieng-lot-chuot",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/49/70/497053f8d25c1602c5c79faf15ac2049.png"
+                    },
+                    {
+                        "name": "Tay cầm chơi game",
+                        "slug": "/may-choi-game-cam-tay-tay-cam-choi-game",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/0c/9e/0c9e064d8ec9452a931d021dfee96c79.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Thiết bị lưu trữ",
+                "items": [
+                    {
+                        "name": "Ổ cứng di động",
+                        "slug": "/o-cung-di-dong",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/c1/4e/c14eb68c77b7402be257c972a8a9625b.png"
+                    },
+                    {
+                        "name": "Thẻ nhớ",
+                        "slug": "/the-nho-dien-thoai",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/0b/e8/0be891a66b3f2fdf30a3a18070d1453a.png"
+                    },
+                    {
+                        "name": "USB",
+                        "slug": "/usb",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/34/b6/34b670e9f0f45c2d0290f41c5e747c28.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Phụ kiện khác",
+                "items": [
+                    {
+                        "name": "Máy chiếu",
+                        "slug": "/may-chieu",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/32/2f/322fcac70beaf1bb7c5925f0dc8663ac.png"
+                    },
+                    {
+                        "name": "Gimbal",
+                        "slug": "/gay-tu-suong",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/90/1a/901ad6c88ccafc404df1fdca08ac6ceb.png"
+                    },
+                    {
+                        "name": "Phụ kiện ô tô",
+                        "slug": "/phu-kien-oto",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/9c/8e/9c8e5c73e245a377862049b483cb3b21.png"
+                    },
+                    {
+                        "name": "Máy chụp ảnh lấy liền",
+                        "slug": "/may-chup-anh-lay-lien",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/58/96/5896ea953c2a15fd8bebab2f35fdb47f.png"
+                    },
+                    {
+                        "name": "Flycam",
+                        "slug": "/flycam",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/00/34/00347116e3b25ffa8e81d216607ada64.png"
+                    },
+                    {
+                        "name": "Pin tiểu",
+                        "slug": "/pin",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/c6/e3/c6e35b12d394f042da55d88c2126b9db.png"
+                    },
+                    {
+                        "name": "AirTag, Vỏ bảo vệ AirTag",
+                        "slug": "/airtag",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/d2/a9/d2a90f9e7a948b04ab527e55e3c6a98b.png"
+                    },
+                    {
+                        "name": "Quạt sưởi",
+                        "slug": "/quat-suoi",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/5b/81/5b815a1ca0cf9792245e3d8b03e05f6d.png"
+                    },
+                    {
+                        "name": "Đèn năng lượng mặt trời",
+                        "slug": "/den-nang-luong-mat-troi",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/fc/c7/fcc77f5b2a98e5248f0ecbdf210cc8e6.png"
+                    },
+                    {
+                        "name": "Dây đeo đồng hồ",
+                        "slug": "/day-dong-ho",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/b5/a5/b5a531c9008b87379f8f2cae7c37cd1c.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Thương hiệu hàng đầu",
+                "items": [
+                    {
+                        "name": "Apple",
+                        "slug": "/phu-kien/apple",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/6a/6a/6a6a116227ceaf2f407f5573f44069ec.png"
+                    },
+                    {
+                        "name": "Samsung",
+                        "slug": "/phu-kien/samsung",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/ea/1d/ea1d0470faaea58604610926a4f45fcb.png"
+                    },
+                    {
+                        "name": "Imou",
+                        "slug": "/phu-kien/imou",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/ee/a1/eea14df76a63a0f6b9f3267143856602.png"
+                    },
+                    {
+                        "name": "Baseus",
+                        "slug": "/phu-kien/baseus",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/0a/bd/0abddded6e3650bcd1859c511fcc2747.png"
+                    },
+                    {
+                        "name": "JBL",
+                        "slug": "/phu-kien/jbl",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/be/88/be887406c072668c452a41be86574976.png"
+                    },
+                    {
+                        "name": "Anker",
+                        "slug": "/phu-kien/anker",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/67/bd/67bd9cf55ca10673bf3df7605e295bb4.png"
+                    },
+                    {
+                        "name": "Xmobile",
+                        "slug": "/phu-kien/xmobile",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/c2/26/c22643c4c1ee6d06a78a4aebea060e37.png"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Smartwatch",
+        "slug": "/dong-ho-thong-minh-ldp",
+        "groups": []
+    },
+    {
+        "name": "Đồng hồ",
+        "slug": "/dong-ho",
+        "groups": []
+    },
+    {
+        "name": "Tablet",
+        "slug": "/may-tinh-bang",
+        "groups": []
+    },
+    {
+        "name": "Máy cũ, Thu cũ",
+        "slug": "/may-doi-tra",
+        "groups": [
+            {
+                "group_name": "Máy cũ, Thu cũ",
+                "items": [
+                    {
+                        "name": "Máy cũ giá tốt",
+                        "slug": "/may-doi-tra",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/47/1b/471b8073fdb15619b6c958e5316e7f61.png"
+                    },
+                    {
+                        "name": "Thu cũ đổi mới",
+                        "slug": "/thu-cu-doi-moi",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/4e/b2/4eb2cac00f6019e50875c3d1d4f74d6b.png"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Màn hình, Máy in",
+        "slug": "/pc-may-in",
+        "groups": [
+            {
+                "group_name": "PC, Màn hình",
+                "items": [
+                    {
+                        "name": "Máy tính để bàn",
+                        "slug": "/may-tinh-de-ban",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/5c/20/5c20902d35f326dc8947e3a6b2adc178.png"
+                    },
+                    {
+                        "name": "Màn hình máy tính",
+                        "slug": "/man-hinh-may-tinh",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/b6/76/b676088f8fa091112be65b0b4e8bb786.png"
+                    },
+                    {
+                        "name": "Giá treo màn hình",
+                        "slug": "/gia-treo-man-hinh",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/89/ab/89abcd01f43ef18e354c11d4e58d026e.png"
+                    },
+                    {
+                        "name": "Máy chơi game",
+                        "slug": "/may-choi-game-cam-tay",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/6b/08/6b08326eb6783191ab1b32080618a663.png"
+                    },
+                    {
+                        "name": "Bộ lưu điện",
+                        "slug": "/bo-luu-dien",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/d9/00/d900a20aec787d7c0fcea0e74d076529.png"
+                    },
+                    {
+                        "name": "Máy quét mã vạch",
+                        "slug": "/thiet-bi-ma-vach",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/ce/8d/ce8d96a261ef112958d47f85d6de4816.png"
+                    },
+                    {
+                        "name": "Phần mềm",
+                        "slug": "/phan-mem",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/bb/07/bb07512d2429a1b38cedd20b750b734c.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Máy in, Mực in",
+                "items": [
+                    {
+                        "name": "Mực in",
+                        "slug": "/muc-in",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/38/76/3876a43c46810299826ada7874b1cf6b.png"
+                    },
+                    {
+                        "name": "Máy in",
+                        "slug": "/may-in",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/24/b3/24b303278d3d03de8b3fa3a31c2a1820.png"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Sim, Thẻ cào",
+        "slug": "/sim-so-dep",
+        "groups": []
+    },
+    {
+        "name": "Dịch vụ tiện ích",
+        "slug": "/tien-ich/thanh-toan-tra-gop",
+        "groups": [
+            {
+                "group_name": "Thanh toán hóa đơn",
+                "items": [
+                    {
+                        "name": "Đóng tiền trả góp",
+                        "slug": "/tien-ich/thanh-toan-tra-gop",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/61/b6/61b6e80c07684c4846aeff658fdba88a.png"
+                    },
+                    {
+                        "name": "Đóng tiền điện",
+                        "slug": "/tien-ich/thanh-toan-tien-dien",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/8e/96/8e9685acf415892e991723bd885a7696.png"
+                    },
+                    {
+                        "name": "Đóng tiền nước",
+                        "slug": "/tien-ich/thanh-toan-tien-nuoc",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/43/fb/43fb3b248d0417ac1936c21ba9c03aef.png"
+                    },
+                    {
+                        "name": "Đóng tiền NET FPT",
+                        "slug": "/tien-ich/thanh-toan-internet-fpt",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/09/93/099365b9fef8ff95bd19d85d84f528bc.png"
+                    },
+                    {
+                        "name": "Đóng tiền net, cáp VNPT",
+                        "slug": "/tien-ich/thanh-toan-internet-vnpt",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/d0/6c/d06c8a333e6bb746786858b56d8881cd.png"
+                    },
+                    {
+                        "name": "Thu vé tàu, xe, máy bay",
+                        "slug": "/tien-ich/thanh-toan-ve-tau-xe",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/9c/79/9c79d46ccb9d986fccb55182de2f1c4c.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Bảo hành - Bảo hiểm",
+                "items": [
+                    {
+                        "name": "Bảo hiểm xe máy - Ô tô",
+                        "slug": "/tien-ich/bao-hiem-o-to-xe-may",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/38/7a/387aa99478d8e608e234bb979b8835f9.png"
+                    },
+                    {
+                        "name": "Đóng BHYT- BHXH",
+                        "slug": "/tin-tuc/mua-bhyt-va-bhxh-tu-nguyen-den-ngay-tgdd-1569486",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/35/21/3521d9122915926b55c27bf8a44f80bd.png"
+                    },
+                    {
+                        "name": "Vay tiền mặt CAKE",
+                        "slug": "/tin-tuc/vay-tien-mat-tren-app-qua-tang-vip-han-muc-den-50-trieu-1587743",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/31/38/313842967f3eb51dca294a6af3d36e2e.png"
+                    },
+                    {
+                        "name": "Vay tiền mặt CATHAY",
+                        "slug": "/tin-tuc/vay-tieu-dung-qua-app-ngan-hang-cathay-united-bank-1570518",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/f9/a7/f9a7165adf02fa6ab3549395dfae0812.png"
+                    },
+                    {
+                        "name": "Bảo hành rơi vỡ",
+                        "slug": "/tin-tuc/tat-tan-tat-ve-chinh-sach-bao-hiem-roi-vo-bao-hanh-mo-rong-bao-hanh-1-doi-1-tai-tgdd-1567763#hmenuid1:~:text=%C4%91%C3%A3i%20%C4%91%E1%BA%B7c%20bi%E1%BB%87t!-,B%E1%BA%A3o%20hi%E1%BB%83m%20r%C6%A1i%20v%E1%BB%A1,-1.%20S%E1%BA%A3n%20ph%E1%BA%A9m",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/50/35/5035a1e6cb76425d7cd748f81481b567.png"
+                    },
+                    {
+                        "name": "Bảo hành mở rộng",
+                        "slug": "/tin-tuc/tat-tan-tat-ve-chinh-sach-bao-hiem-roi-vo-bao-hanh-mo-rong-bao-hanh-1-doi-1-tai-tgdd-1567763#hmenuid1:~:text=7%20%26%20ch%E1%BB%A7%20nh%E1%BA%ADt).-,B%E1%BA%A3o%20h%C3%A0nh%20m%E1%BB%9F%20r%E1%BB%99ng,-1.%20S%E1%BA%A3n%20ph%E1%BA%A9m",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/cc/53/cc53c60cef74387bb822863b59f20f53.png"
+                    },
+                    {
+                        "name": "Bảo hành 1 đổi 1",
+                        "slug": "/tin-tuc/tat-tan-tat-ve-chinh-sach-bao-hiem-roi-vo-bao-hanh-mo-rong-bao-hanh-1-doi-1-tai-tgdd-1567763#hmenuid1:~:text=7%20%26%20ch%E1%BB%A7%20nh%E1%BA%ADt).-,B%E1%BA%A3o%20h%C3%A0nh%201%20%C4%91%E1%BB%95i%201,-1.%20S%E1%BA%A3n%20ph%E1%BA%A9m",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/31/4f/314fcd2f5d051e956671fc69d86547ed.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Tiện ích viễn thông",
+                "items": [
+                    {
+                        "name": "Mua gói data 3G, 4G",
+                        "slug": "/tien-ich/goi-cuoc-data",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/34/92/349219728cb261aa4355e65b8eb600f8.png"
+                    },
+                    {
+                        "name": "Nạp tiền trả trước",
+                        "slug": "/tien-ich/nap-tien-dien-thoai",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/f5/c7/f5c7e0f1d65e60f1b832eddcbc8dc2ad.png"
+                    },
+                    {
+                        "name": "Nạp tiền trả sau",
+                        "slug": "/tien-ich/nap-tien-dien-thoai-tra-sau",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/fe/34/fe34312d302d489162e7bae030515363.png"
+                    },
+                    {
+                        "name": "Thẻ cào game",
+                        "slug": "/tien-ich/the-cao-game",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/b2/13/b2135863df0735405d466c06222b45ab.png"
+                    },
+                    {
+                        "name": "Thẻ cào điện thoại",
+                        "slug": "/tien-ich/the-cao-dien-thoai",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/common/Common/d1/4b/d14bc733f4e33f0299e0041668493f1d.png"
+                    }
+                ]
+            },
+            {
+                "group_name": "Tiện ích khác",
+                "items": [
+                    {
+                        "name": "Đặt vé máy bay",
+                        "slug": "/dat-ve-may-bay",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/00/72/0072d5344481e8f27a3f7dc0d3037a04.png"
+                    },
+                    {
+                        "name": "Nạp rút tài khoản ngân hàng",
+                        "slug": "/tin-tuc/rut-tien-nhanh-chong-tai-the-gioi-di-dong-dien-may-xanh-1572849",
+                        "icon": "https://cdnv2.tgdd.vn/mwg-static/tgdd/Common/25/7d/257dd793c021c8daeab84f04bd60c232.png"
+                    }
+                ]
+            }
+        ]
+    }
+]
