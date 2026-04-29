@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\ProductType;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,9 +13,20 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.products.index');
+        $categories = Category::whereNull('parent_id')->with('children:id,name,parent_id')->get(['id', 'name']);
+        $brands = Brand::get(['id', 'name']);
+        $productTypes = ProductType::get(['id', 'name']);
+
+        if ($request->ajax() || $request->expectsJson()) {
+            return response()->json([
+                'categories' => $categories, 
+                'brands' => $brands, 
+                'productTypes' => $productTypes
+            ]);
+        }
+        return view('admin.products.index', compact('categories', 'brands', 'productTypes'));
     }
 
     /**

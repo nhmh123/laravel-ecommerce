@@ -13,4 +13,6 @@ Route::prefix('admin')->group(function () {
     })->name('admin.dashboard');
 
     Route::resource('products', ProductController::class)->names('admin.products');
+    
+    Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class)->only(['store', 'show', 'update', 'destroy']);
 });

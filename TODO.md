@@ -1,8 +1,9 @@
-# Horizontal Scroll Table Task
+# Category Modal TODO
 
 ## Steps:
-1. **Create TODO.md** - Track progress (done).
-2. **Edit resources/views/admin/products/index.blade.php** - Wrap table wrapper with `<div class="table-responsive">` below search toolbar. (done)
-3. **Update TODO.md** - Mark edits complete. (done)
-4. **Test** - View page and verify horizontal scroll on narrow screens. (done - changes applied successfully)
-5. **Complete task** (done).
+1. [x] Add routes to web.php for admin.categories (store, show, update, destroy)
+2. [x] Implement CategoryController methods (store, show/edit data, update, destroy)
+3. [x] Add category modal HTML to products/index.blade.php
+4. [x] Add data-ids and JS handlers for add/edit/delete + AJAX refresh
+5. [x] Update ProductController for AJAX support
+6. [x] Complete
