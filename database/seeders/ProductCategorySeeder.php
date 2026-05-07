@@ -138,7 +138,6 @@ class ProductCategorySeeder extends Seeder
                 "parent" => "Sản phẩm cao cấp",
                 "slug" => "hang-cao-cap",
                 "children" => [
-                    ["name" => "Xem tất cả", "slug" => "hang-cao-cap"],
                     ["name" => "Sản phẩm Nổi Bật", "slug" => "hang-cao-cap-san-pham-hot"],
                     ["name" => "Đồng hồ thông minh", "slug" => "dong-ho-thong-minh"],
                     ["name" => "Thiết bị giải trí", "slug" => "hang-cao-cap-thiet-bi-giai-tri"],
@@ -169,7 +168,6 @@ class ProductCategorySeeder extends Seeder
                 "parent" => "Điện gia dụng",
                 "slug" => "dien-gia-dung",
                 "children" => [
-                    ["name" => "Xem tất cả", "slug" => "gia-dung"],
                     ["name" => "Máy lọc nước", "slug" => "may-loc-nuoc"],
                     ["name" => "Nồi cơm điện", "slug" => "noi-com-dien"],
                     ["name" => "Nồi chiên Nồi nướng", "slug" => "noi-chien-noi-nuong"],
@@ -238,7 +236,6 @@ class ProductCategorySeeder extends Seeder
                 "parent" => "Điện thoại, Tablet",
                 "slug" => "di-dong-tablet",
                 "children" => [
-                    ["name" => "Xem tất cả", "slug" => "di-dong-tablet"],
                     ["name" => "Điện thoại", "slug" => "dien-thoai-di-dong"],
                     ["name" => "Máy tính bảng", "slug" => "may-tinh-bang"],
                     ["name" => "Đồng hồ thông minh", "slug" => "dong-ho-thong-minh"],
@@ -246,8 +243,7 @@ class ProductCategorySeeder extends Seeder
                     ["name" => "Laptop", "slug" => "laptop"],
                     ["name" => "Camera", "slug" => "camera"],
                     ["name" => "Tai nghe", "slug" => "tai-nghe"],
-                    ["name" => "Phụ kiện điện thoại", "slug" => "phu-kien-di-dong"],
-                    ["name" => "↓ Cho HSSV & Tài xế công nghệ", "slug" => "giam-them-den-5-toi-da-500000d-cho-hoc-sinh-sinh-vien-tai-xe-cong-nghe-khi-mua-di-dong-samsung-oppo-vivo"]
+                    ["name" => "Phụ kiện điện thoại", "slug" => "phu-kien-di-dong"]
                 ]
             ],
             [
@@ -277,7 +273,6 @@ class ProductCategorySeeder extends Seeder
                 "parent" => "Nội thất",
                 "slug" => "noi-that",
                 "children" => [
-                    ["name" => "Xem tất cả", "slug" => "noi-that"],
                     ["name" => "Ghế", "slug" => "ghe"],
                     ["name" => "Tủ quần áo", "slug" => "tu-quan-ao"],
                     ["name" => "Sofa", "slug" => "sofa"],

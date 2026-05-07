@@ -92,7 +92,6 @@ class BrandSeeder extends Seeder
             Brand::create($brandData);
         }
 
-        // Additional factories for more data
         Brand::factory(10)->create();
     }
 }

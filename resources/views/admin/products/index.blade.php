@@ -121,6 +121,20 @@
 
     @push('scripts')
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap4.min.js"></script>            
+        <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap4.min.js"></script>           
+        <script>
+        $(document).ready(function() {
+            $('.filter-sidebar').on('change', '.custom-control-input', function() {
+                let isChecked = $(this).is(':checked');
+                
+                let parentDiv = $(this).closest('.d-flex');
+                let childrenContainer = parentDiv.next('.ml-3');
+
+                if (childrenContainer.length > 0) {
+                    childrenContainer.find('.custom-control-input').prop('checked', isChecked);
+                }
+            });
+        });
+    </script> 
     @endpush
 @endsection
