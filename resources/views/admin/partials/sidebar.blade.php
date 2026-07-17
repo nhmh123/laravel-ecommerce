@@ -38,7 +38,8 @@
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="{{ route('admin.products.index') }}" class="nav-link active">
+                    <a href="{{ route('admin.products.index') }}"
+                        class="nav-link @if (request()->routeIs('admin.products.*')) active @endif">
                         <i class="nav-icon fas fa-box-open"></i>
                         <p>
                             Sản phẩm
@@ -47,7 +48,8 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.products.index') }}" class="nav-link">
+                            <a href="{{ route('admin.products.index') }}"
+                                class="nav-link @if (request()->routeIs('admin.products.index')) active @endif">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách sản phẩm</p>
                             </a>
