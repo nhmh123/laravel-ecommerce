@@ -1,4 +1,4 @@
-@props(['categories','level' => 0])
+@props(['categories', 'level' => 0])
 
 @foreach ($categories as $category)
     <div class="d-flex justify-content-between align-items-center mb-2 pr-1">
@@ -9,7 +9,7 @@
             </label>
         </div>
         <div class="action-icons text-muted text-nowrap">
-            <ion-icon class="edit-category mr-1" data-id="{{ $category->id }}" name="pencil-outline"
+            <ion-icon class="edit-category" data-id="{{ $category->id }}" name="pencil-outline"
                 style="cursor:pointer"></ion-icon>
             <ion-icon class="delete-category" data-id="{{ $category->id }}" name="trash-outline"
                 style="cursor:pointer"></ion-icon>

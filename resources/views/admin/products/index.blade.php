@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @push('styles')
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 @endpush
 @section('page_title', 'Danh sách sản phẩm')
 @section('content')
@@ -100,21 +101,11 @@
         </div>
     </div>
     <x-admin.modal-add-brand />
-    <x-admin.modal-add-category />
+    <x-admin.modal-add-category :categories="$categories" />
     @push('scripts')
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap4.min.js"></script>
-        <script>
-        $(document).ready(function() {
-            $('.filter-sidebar').on('change', '.custom-control-input', function() {
-                let isChecked = $(this).is(':checked');
-                let parentDiv = $(this).closest('.d-flex');
-                let childrenContainer = parentDiv.next('.ml-3');
-                if (childrenContainer.length > 0) {
-                    childrenContainer.find('.custom-control-input').prop('checked', isChecked);
-                }
-            });
-        });
-    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        @vite('resources/js/admin/category.js')
     @endpush
 @endsection

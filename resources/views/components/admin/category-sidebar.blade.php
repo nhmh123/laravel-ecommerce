@@ -9,6 +9,6 @@
         <i class="fas fa-plus"></i>
     </a>
 </div>
-<div class="filter-scroll scroll-custom" style="max-height: 200px; overflow-y: auto;">
+<div class="category-sidebar filter-scroll scroll-custom" style="max-height: 200px; overflow-y: auto;">
     <x-admin.category-sidebar-item :categories="$categories" :level="$level" />
 </div>
