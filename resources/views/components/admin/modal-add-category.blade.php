@@ -21,9 +21,7 @@
                         <label class="font-weight-bold">Danh mục cha</label>
                         <select name="parent_id" id="cat-parent-id" class="form-control">
                             <option value="">-- Danh mục gốc --</option>
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
+                            <x-admin.category-option :categories="$categories" />
                         </select>
                     </div>
                 </div>

@@ -22,8 +22,18 @@ class Category extends Model
         return $this->hasMany(Category::class, 'parent_id');
     }
 
+    public function childrenRecursive()
+    {
+        return $this->hasMany(Category::class, 'parent_id')
+            ->with('childrenRecursive');
+    }
+
     public function products()
     {
         return $this->belongsToMany(Product::class, 'category_product');
+    }
+
+    public function scopeRoot($query){
+        return $query->whereNull('parent_id');
     }
 }

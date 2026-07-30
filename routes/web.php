@@ -14,5 +14,6 @@ Route::prefix('admin')->group(function () {
     })->name('admin.dashboard');
 
     Route::resource('products', ProductController::class)->names('admin.products');
+    Route::get('categories/sidebar',[CategoryController::class,'sidebar'])->name('admin.categories.sidebar');
     Route::resource('categories', CategoryController::class)->only(['store', 'show', 'update', 'destroy'])->names('admin.categories');
 });

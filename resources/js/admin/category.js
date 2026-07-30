@@ -1,9 +1,20 @@
 const $ = window.jQuery;
-
 if ($) {
     $(function () {
-        console.log('category.js loaded');
-        $('.category-sidebar .custom-control-input').prop('checked', true);
+        const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        function reloadCategorySidebar() {
+            const $sidebar = $('#category-sidebar');
+            $.get($sidebar.data('url'), function (html) {
+                $sidebar.html(html);
+                checkAllCategorySidebarsItem();
+            });
+        }
+
+        function checkAllCategorySidebarsItem() {
+            $('.category-sidebar .custom-control-input').prop('checked', true);
+        }
+
+        checkAllCategorySidebarsItem()
 
         $('.filter-sidebar').on('change', '.custom-control-input', function () {
             const isChecked = $(this).is(':checked');
@@ -27,14 +38,6 @@ if ($) {
             $('#category-loading-overlay').addClass('d-none');
         });
 
-        $(document).on('click', '.edit-category', function () {
-            alert('OK');
-        });
-
-        $(document).on('click', '.action-icons', function (e) {
-            console.log(e.target);
-        });
-
         $('#form-category').on('submit', function (event) {
             event.preventDefault();
 
@@ -55,6 +58,9 @@ if ($) {
             })
                 .done(function (response) {
                     $('#modal-add-category').modal('hide');
+
+                    reloadCategorySidebar();
+
                     $form[0].reset();
 
                     toastr.options = {
@@ -63,10 +69,6 @@ if ($) {
                         timeOut: 1500,
                     };
                     toastr.success(response.message, 'Success');
-
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 1600);
                 })
                 .fail(function (xhr) {
                     const errors = xhr.responseJSON && xhr.responseJSON.errors;
@@ -94,6 +96,43 @@ if ($) {
                     $submit.prop('disabled', false);
                     $overlay.addClass('d-none');
                 });
+        });
+
+        $('#category-sidebar').on('click', '.delete-category', function () {
+            const $button = $(this);
+            const url = $button.data('url');
+
+            Swal.fire({
+                title: 'Delete category?',
+                text: 'This action cannot be undone.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+
+                if (!result.isConfirmed) return;
+
+                $.ajax({
+                    url: url,
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': CSRF_TOKEN,
+                        Accept: 'application/json'
+                    }
+                })
+                    .done(function (response) {
+                        toastr.success(response.message);
+                        reloadCategorySidebar();
+                    })
+                    .fail(function (xhr) {
+                        const message =
+                            xhr.responseJSON?.message ??
+                            'Unable to delete category.';
+
+                        toastr.error(message);
+                    });
+            });
         });
     });
 }

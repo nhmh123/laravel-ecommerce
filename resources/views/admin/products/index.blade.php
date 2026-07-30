@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-lg-3">
             <div class="filter-sidebar bg-white shadow-sm rounded p-3 mb-3">
-                <div class="filter-group mb-4">
+                <div class="filter-group mb-4" id="category-sidebar" data-url="{{ route('admin.categories.sidebar') }}">
                     <x-admin.category-sidebar :categories="$categories" />
                 </div>
                 <div class="filter-group mb-4">
@@ -72,8 +72,7 @@
                                     <span class="input-group-text bg-white border-left-0 rounded-right-pill"></span>
                                 </div>
                             </div>
-                            <a class="btn btn-sm btn-outline-success mr-2 shadow-sm" href="#"
-                                title="Làm mới">
+                            <a class="btn btn-sm btn-outline-success mr-2 shadow-sm" href="#" title="Làm mới">
                                 <i class="fas fa-sync"></i>
                             </a>
                             <div class="btn-group">
@@ -106,6 +105,7 @@
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @vite('resources/js/admin/category.js')
     @endpush
 @endsection

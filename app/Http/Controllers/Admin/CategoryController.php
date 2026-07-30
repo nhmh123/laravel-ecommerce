@@ -62,11 +62,31 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        if ($category->children()->exists()) {
+            return response()->json([
+                'message' => 'Cannot delete a category that has child categories.'
+            ], 422);
+        }
+
+        if ($category->products()->exists()) {
+            return response()->json([
+                'message' => 'Cannot delete category because it still contains products.'
+            ], 422);
+        }
+
         $category->delete();
 
         return response()->json([
-            'success' => true,
-            'message' => 'Danh mục đã được xóa!'
+            'message' => 'Category deleted successfully.'
         ]);
+    }
+
+    public function sidebar(){
+        $categories = Category::select('id', 'name')
+            ->root()
+            ->with('childrenRecursive:id,name,parent_id')
+            ->get();
+
+        return response()->view('components.admin.category-sidebar', compact('categories'));
     }
 }

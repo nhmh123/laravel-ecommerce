@@ -15,14 +15,18 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = Category::whereNull('parent_id')->with('children:id,name,parent_id')->get(['id', 'name']);
+        $categories = Category::select('id', 'name')
+            ->root()
+            ->with('childrenRecursive:id,name,parent_id')
+            ->get();
+
         $brands = Brand::get(['id', 'name']);
         $productTypes = ProductType::get(['id', 'name']);
 
         if ($request->ajax() || $request->expectsJson()) {
             return response()->json([
-                'categories' => $categories, 
-                'brands' => $brands, 
+                'categories' => $categories,
+                'brands' => $brands,
                 'productTypes' => $productTypes
             ]);
         }
