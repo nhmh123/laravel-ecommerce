@@ -9,8 +9,10 @@
             </label>
         </div>
         <div class="action-icons text-muted text-nowrap">
-            <ion-icon class="edit-category" data-id="{{ $category->id }}" name="pencil-outline"
-                style="cursor:pointer"></ion-icon>
+            <ion-icon class="edit-category" data-id="{{ $category->id }}" data-name="{{ $category->name }}"
+                data-parent-id="{{ $category->parent_id }}" data-url="{{ route('admin.categories.update', $category) }}"
+                name="pencil-outline" style="cursor:pointer">
+            </ion-icon>
             <ion-icon class="delete-category" data-id="{{ $category->id }}"
                 data-url="{{ route('admin.categories.destroy', $category) }}" name="trash-outline"
                 style="cursor:pointer">

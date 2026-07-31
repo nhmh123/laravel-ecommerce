@@ -2,11 +2,24 @@ const $ = window.jQuery;
 if ($) {
     $(function () {
         const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
         function reloadCategorySidebar() {
             const $sidebar = $('#category-sidebar');
             $.get($sidebar.data('url'), function (html) {
                 $sidebar.html(html);
                 checkAllCategorySidebarsItem();
+            });
+        }
+
+        function reloadCategoryOptions(selected = '') {
+            const $select = $('#cat-parent-id');
+
+            $.get($select.data('url'), function (html) {
+                $select.html('<option value="">-- Danh mục gốc --</option>' + html);
+
+                if (selected) {
+                    $select.val(selected);
+                }
             });
         }
 
@@ -31,8 +44,10 @@ if ($) {
 
         $('#modal-add-category').on('hidden.bs.modal', function () {
             const $form = $('#form-category');
-
             $form[0].reset();
+            $('#modal-title').text('Thêm danh mục mới');
+            $('#form-method').val('POST');
+            $form.attr('data-mode', 'create').removeAttr('data-update-url');
             $form.find('.is-invalid').removeClass('is-invalid');
             $form.find('[data-category-feedback]').remove();
             $('#category-loading-overlay').addClass('d-none');
@@ -42,6 +57,7 @@ if ($) {
             event.preventDefault();
 
             const $form = $(this);
+            const isUpdate = $form.data('mode') === 'update';
             const $submit = $form.find('button[type="submit"]');
             const $overlay = $('#category-loading-overlay');
 
@@ -51,18 +67,18 @@ if ($) {
             $overlay.removeClass('d-none');
 
             $.ajax({
-                url: $form.data('store-url'),
-                method: 'POST',
+                url: isUpdate
+                    ? $form.data('update-url')
+                    : $form.data('store-url'),
+                method: isUpdate ? 'PUT' : 'POST',
                 data: $form.serialize(),
                 headers: { Accept: 'application/json' },
             })
                 .done(function (response) {
                     $('#modal-add-category').modal('hide');
-
                     reloadCategorySidebar();
-
+                    reloadCategoryOptions();
                     $form[0].reset();
-
                     toastr.options = {
                         closeButton: true,
                         progressBar: true,
@@ -71,15 +87,18 @@ if ($) {
                     toastr.success(response.message, 'Success');
                 })
                 .fail(function (xhr) {
-                    const errors = xhr.responseJSON && xhr.responseJSON.errors;
-                    console.log(errors)
-                    if (errors) {
-                        Object.entries(errors).forEach(function ([field, messages]) {
+                    const response = xhr.responseJSON;
+
+                    $form.find('.is-invalid').removeClass('is-invalid');
+                    $form.find('[data-category-feedback]').remove();
+
+                    if (response?.errors) {
+                        Object.entries(response.errors).forEach(function ([field, messages]) {
                             const $field = $form.find('[name="' + field + '"]');
                             let $feedback = $form.find('[data-category-feedback="' + field + '"]');
 
                             if (!$feedback.length) {
-                                $feedback = $('<div></div>', {
+                                $feedback = $('<div>', {
                                     class: 'invalid-feedback d-block',
                                     'data-category-feedback': field,
                                 }).insertAfter($field);
@@ -88,9 +107,16 @@ if ($) {
                             $field.addClass('is-invalid');
                             $feedback.text(messages[0]);
                         });
-                    } else {
-                        toastr.error('Unable to save the category. Please try again.');
+
+                        return;
                     }
+
+                    if (response?.message) {
+                        toastr.error(response.message);
+                        return;
+                    }
+
+                    toastr.error('Đã xảy ra lỗi. Vui lòng thử lại sau.');
                 })
                 .always(function () {
                     $submit.prop('disabled', false);
@@ -103,12 +129,13 @@ if ($) {
             const url = $button.data('url');
 
             Swal.fire({
-                title: 'Delete category?',
-                text: 'This action cannot be undone.',
+                title: 'Xác nhận xóa',
+                text: 'Danh mục sẽ bị xóa vĩnh viễn. Bạn có muốn tiếp tục?',
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Delete',
-                cancelButtonText: 'Cancel'
+                confirmButtonText: 'Có, xóa ngay',
+                cancelButtonText: 'Hủy',
+                reverseButtons: true
             }).then((result) => {
 
                 if (!result.isConfirmed) return;
@@ -133,6 +160,16 @@ if ($) {
                         toastr.error(message);
                     });
             });
+        });
+
+        $('#category-sidebar').on('click', '.edit-category', function () {
+            const $button = $(this);
+            $('#modal-title').text('Cập nhật danh mục');
+            $('#cat-name').val($button.data('name'));
+            $('#cat-parent-id').val($button.data('parent-id'));
+            $('#form-method').val('PUT');
+            $('#form-category').attr('data-mode', 'update').attr('data-update-url', $button.data('url'));
+            $('#modal-add-category').modal('show');
         });
     });
 }

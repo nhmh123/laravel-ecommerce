@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateCategoryRequest;
+use App\Http\Requests\Admin\UpdateCategoryRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Services\CategoryService;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+    private $categoryService;
+
+    public function __construct(CategoryService $categoryService)
+    {
+        $this->categoryService = $categoryService;
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -39,21 +47,25 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
+        if (!$this->categoryService->canMove($category, $request->parent_id)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Không thể chọn danh mục hiện tại hoặc danh mục con của nó làm danh mục cha.'
+            ], 422);
+        }
 
         $category->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
+            'parent_id'=>$request->parent_id
         ]);
 
         return response()->json([
             'success' => true,
-            'message' => 'Danh mục đã được cập nhật!',
-            'data' => $category->fresh()->load('children')
+            'message' => 'Cập nhật danh mục thành công.',
+            'data' => $category->fresh()->load('children'),
         ]);
     }
 
@@ -64,20 +76,23 @@ class CategoryController extends Controller
     {
         if ($category->children()->exists()) {
             return response()->json([
-                'message' => 'Cannot delete a category that has child categories.'
+                'success' => false,
+                'message' => 'Không thể xóa danh mục vì vẫn còn danh mục con.'
             ], 422);
         }
 
         if ($category->products()->exists()) {
             return response()->json([
-                'message' => 'Cannot delete category because it still contains products.'
+                'success' => false,
+                'message' => 'Không thể xóa danh mục vì vẫn còn sản phẩm thuộc danh mục này.'
             ], 422);
         }
 
         $category->delete();
 
         return response()->json([
-            'message' => 'Category deleted successfully.'
+            'success' => true,
+            'message' => 'Xóa danh mục thành công.'
         ]);
     }
 
@@ -88,5 +103,15 @@ class CategoryController extends Controller
             ->get();
 
         return response()->view('components.admin.category-sidebar', compact('categories'));
+    }
+
+    public function options()
+    {
+        $categories = Category::query()
+            ->root()
+            ->with('childrenRecursive:id,name,parent_id')
+            ->get(['id', 'name']);
+
+        return response()->view('components.admin.category-option', compact('categories'));
     }
 }

@@ -19,7 +19,8 @@
                     </div>
                     <div class="form-group">
                         <label class="font-weight-bold">Danh mục cha</label>
-                        <select name="parent_id" id="cat-parent-id" class="form-control">
+                        <select id="cat-parent-id" name="parent_id" class="form-control"
+                            data-url="{{ route('admin.categories.options') }}">
                             <option value="">-- Danh mục gốc --</option>
                             <x-admin.category-option :categories="$categories" />
                         </select>
