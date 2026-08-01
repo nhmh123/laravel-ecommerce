@@ -34,7 +34,7 @@
                 <div class="filter-group mb-4">
                     <x-admin.warehouse-sidebar :warehouses="[]" />
                 </div>
-                <div class="filter-group">
+                <div id="brand-sidebar" data-url="{{ route('admin.brands.sidebar') }}">
                     <x-admin.brand-sidebar :brands="$brands" />
                 </div>
             </div>
@@ -99,13 +99,14 @@
             </div>
         </div>
     </div>
-    <x-admin.modal-add-brand />
-    <x-admin.modal-add-category :categories="$categories" />
+    <x-admin.modal-brand />
+    <x-admin.modal-category :categories="$categories" />
     @push('scripts')
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @vite('resources/js/admin/category.js')
+        @vite('resources/js/admin/brand.js')
     @endpush
 @endsection

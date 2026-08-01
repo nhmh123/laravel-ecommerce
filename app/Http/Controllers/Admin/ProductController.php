@@ -20,7 +20,7 @@ class ProductController extends Controller
             ->with('childrenRecursive:id,name,parent_id')
             ->get();
 
-        $brands = Brand::get(['id', 'name']);
+        $brands = Brand::get(['id', 'name'])->sortBy('name');
         $productTypes = ProductType::get(['id', 'name']);
 
         if ($request->ajax() || $request->expectsJson()) {
