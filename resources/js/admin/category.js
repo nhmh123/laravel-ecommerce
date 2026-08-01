@@ -2,6 +2,9 @@ const $ = window.jQuery;
 if ($) {
     $(function () {
         const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        var updateUrl = '';
+
+        checkAllCategorySidebarsItem()
 
         function reloadCategorySidebar() {
             const $sidebar = $('#category-sidebar');
@@ -26,8 +29,6 @@ if ($) {
         function checkAllCategorySidebarsItem() {
             $('.category-sidebar .custom-control-input').prop('checked', true);
         }
-
-        checkAllCategorySidebarsItem()
 
         $('.filter-sidebar').on('change', '.custom-control-input', function () {
             const isChecked = $(this).is(':checked');
@@ -66,9 +67,12 @@ if ($) {
             $submit.prop('disabled', true);
             $overlay.removeClass('d-none');
 
+            console.log($form.attr('data-update-url'));
+            console.log(updateUrl);
+
             $.ajax({
                 url: isUpdate
-                    ? $form.data('update-url')
+                    ? updateUrl
                     : $form.data('store-url'),
                 method: isUpdate ? 'PUT' : 'POST',
                 data: $form.serialize(),
@@ -164,6 +168,7 @@ if ($) {
 
         $('#category-sidebar').on('click', '.edit-category', function () {
             const $button = $(this);
+            updateUrl = $(this).data('url');
             $('#modal-title').text('Cập nhật danh mục');
             $('#cat-name').val($button.data('name'));
             $('#cat-parent-id').val($button.data('parent-id'));
