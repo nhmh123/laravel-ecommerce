@@ -2,6 +2,7 @@
 @push('styles')
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/viewerjs@1.11.7/dist/viewer.min.css">
 @endpush
 @section('page_title', 'Danh sách sản phẩm')
 @section('content')
@@ -81,8 +82,7 @@
                                     <i class="fas fa-plus"></i> Thêm mới
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <button type="button" class="dropdown-item"
-                                        data-toggle="modal"
+                                    <button type="button" class="dropdown-item" data-toggle="modal"
                                         data-target="#modal-product">
                                         <i class="fas fa-box-open mr-2"></i>
                                         Thêm mới sản phẩm
@@ -111,6 +111,7 @@
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/viewerjs@1.11.7/dist/viewer.min.js"></script>
         @vite('resources/js/admin/category.js')
         @vite('resources/js/admin/brand.js')
         @vite('resources/js/admin/product.js')

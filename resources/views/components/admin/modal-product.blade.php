@@ -21,7 +21,12 @@
                                 <input type="text" class="form-control" name="name">
                             </div>
                             <div class="form-group">
-                                <label>Thương hiệu</label>
+                                <label>Mã sản phẩm (SKU)</label>
+                                <input type="text" class="form-control" name="sku" placeholder="Tự động tạo mã"
+                                    readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Thương hiệu *</label>
                                 <select id="product-brand-id" class="form-control" name="brand_id"
                                     data-url="{{ route('admin.brands.options') }}">
                                     <option value="">-- Chọn thương hiệu --</option>
@@ -47,7 +52,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Danh mục</label>
+                                <label>Danh mục *</label>
                                 <select id="product-category-id" name="category_id" class="form-control"
                                     data-url="{{ route('admin.categories.options') }}">
                                     <option value="">-- Chọn danh mục --</option>
@@ -57,8 +62,39 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Mô tả</label>
-                                <textarea class="form-control" rows="8" name="description"></textarea>
+                                <label>Hình ảnh sản phẩm</label>
+
+                                <div class="mb-2">
+                                    <label for="product-images" id="btn-select-product-images"
+                                        class="btn btn-outline-primary btn-sm mb-0">
+                                        <i class="fas fa-images mr-1"></i>
+                                        Chọn hình ảnh
+                                    </label>
+
+                                    <input type="file" id="product-images" name="images[]" class="d-none"
+                                        accept="image/*" multiple>
+
+                                    <button type="button" id="btn-add-product-images"
+                                        class="btn btn-outline-primary btn-sm d-none">
+                                        <i class="fas fa-plus mr-1"></i>
+                                        Thêm hình ảnh
+                                    </button>
+
+                                    <button type="button" id="btn-remove-all-product-images"
+                                        class="btn btn-outline-danger btn-sm d-none">
+                                        <i class="fas fa-trash mr-1"></i>
+                                        Xóa tất cả
+                                    </button>
+
+                                    <div class="text-danger font-italic small mt-1">
+                                        <i class="fas fa-info-circle mr-1"></i>
+                                        Có thể chọn nhiều hình ảnh.
+                                        Hình ảnh số 1 sẽ là hình ảnh chính.
+                                        Nhấn vào ảnh để xem phóng to.
+                                    </div>
+                                </div>
+
+                                <div id="product-image-preview" class="d-flex flex-wrap" style="gap: 10px;"></div>
                             </div>
                             <div class="form-group">
                                 <label>Thông số kỹ thuật</label>
@@ -67,7 +103,7 @@
                                         <tr>
                                             <th>Thuộc tính</th>
                                             <th>Giá trị</th>
-                                            <th width="60"></th>
+                                            <th width="60" class="text-nowrap">Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody id="specification-table">
@@ -140,14 +176,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <h5 class="font-weight-bold mb-3">
-                        Hình ảnh
-                    </h5>
-                    <div class="border rounded p-4 text-center">
-                        <i class="fas fa-image fa-3x mb-3 text-secondary"></i>
-                        <input type="file" name="images[]" multiple>
                     </div>
                     <hr>
                     <div class="row">
