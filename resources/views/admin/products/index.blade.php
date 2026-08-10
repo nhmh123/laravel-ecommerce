@@ -81,8 +81,12 @@
                                     <i class="fas fa-plus"></i> Thêm mới
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#"><i class="fas fa-box-open mr-2"></i> Thêm mới
-                                        sản phẩm</a>
+                                    <button type="button" class="dropdown-item"
+                                        data-toggle="modal"
+                                        data-target="#modal-product">
+                                        <i class="fas fa-box-open mr-2"></i>
+                                        Thêm mới sản phẩm
+                                    </button>
                                     <a class="dropdown-item" href="#"><i class="fas fa-boxes mr-2"></i> Thêm mới
                                         combo</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-usps mr-2"></i> Thêm mới
@@ -101,6 +105,7 @@
     </div>
     <x-admin.modal-brand />
     <x-admin.modal-category :categories="$categories" />
+    <x-admin.modal-product :categories="$categories" :productTypes="$productTypes" :brands="$brands" />
     @push('scripts')
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap4.min.js"></script>
@@ -108,5 +113,6 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @vite('resources/js/admin/category.js')
         @vite('resources/js/admin/brand.js')
+        @vite('resources/js/admin/product.js')
     @endpush
 @endsection

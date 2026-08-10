@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProductType;
 use Illuminate\Http\Request;
 
 class ProductTypeController extends Controller
@@ -61,5 +62,14 @@ class ProductTypeController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function options()
+    {
+        $productTypes = ProductType::query()
+            ->orderBy('name')
+            ->get();
+
+        return view('components.admin.product-type-option', compact('productTypes'));
     }
 }

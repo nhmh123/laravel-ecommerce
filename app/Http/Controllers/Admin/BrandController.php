@@ -64,6 +64,13 @@ class BrandController extends Controller
         ]);
     }
 
+    public function options()
+    {
+        $brands = Brand::query()->orderBy('name')->get();
+
+        return view('components.admin.brand-option', compact('brands'));
+    }
+
     public function sidebar()
     {
         $brands = Brand::orderBy('name')->get();

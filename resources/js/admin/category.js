@@ -26,6 +26,20 @@ if ($) {
             });
         }
 
+        function reloadProductCategoryOptions(selected = '') {
+            const $select = $('#product-category-id');
+
+            $.get($select.data('url'), function (html) {
+                $select.html(
+                    '<option value="">-- Chọn danh mục --</option>' + html
+                );
+
+                if (selected) {
+                    $select.val(selected);
+                }
+            });
+        }
+
         function checkAllCategorySidebarsItem() {
             $('.category-sidebar .custom-control-input').prop('checked', true);
         }

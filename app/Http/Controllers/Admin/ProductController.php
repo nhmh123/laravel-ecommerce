@@ -15,13 +15,9 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = Category::select('id', 'name')
-            ->root()
-            ->with('childrenRecursive:id,name,parent_id')
-            ->get();
-
+        $categories = Category::select('id', 'name')->root()->with('childrenRecursive:id,name,parent_id')->get();
         $brands = Brand::get(['id', 'name'])->sortBy('name');
-        $productTypes = ProductType::get(['id', 'name']);
+        $productTypes = ProductType::get(['id', 'name'])->sortBy('name');
 
         if ($request->ajax() || $request->expectsJson()) {
             return response()->json([
