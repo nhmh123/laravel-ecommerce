@@ -62,30 +62,45 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label>Giá nhập *</label>
+                                <div class="input-group">
+                                    <input type="text" id="cost-price" name="cost_price" class="form-control"
+                                        placeholder="Nhập giá nhập">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">VNĐ</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Giá bán *</label>
+                                <div class="input-group">
+                                    <input type="text" id="selling-price" name="price" class="form-control"
+                                        placeholder="Nhập giá bán">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">VNĐ</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label>Hình ảnh sản phẩm</label>
-
                                 <div class="mb-2">
                                     <label for="product-images" id="btn-select-product-images"
                                         class="btn btn-outline-primary btn-sm mb-0">
                                         <i class="fas fa-images mr-1"></i>
                                         Chọn hình ảnh
                                     </label>
-
                                     <input type="file" id="product-images" name="images[]" class="d-none"
                                         accept="image/*" multiple>
-
                                     <button type="button" id="btn-add-product-images"
                                         class="btn btn-outline-primary btn-sm d-none">
                                         <i class="fas fa-plus mr-1"></i>
                                         Thêm hình ảnh
                                     </button>
-
                                     <button type="button" id="btn-remove-all-product-images"
                                         class="btn btn-outline-danger btn-sm d-none">
                                         <i class="fas fa-trash mr-1"></i>
                                         Xóa tất cả
                                     </button>
-
                                     <div class="text-danger font-italic small mt-1">
                                         <i class="fas fa-info-circle mr-1"></i>
                                         Có thể chọn nhiều hình ảnh.
@@ -93,7 +108,6 @@
                                         Nhấn vào ảnh để xem phóng to.
                                     </div>
                                 </div>
-
                                 <div id="product-image-preview" class="d-flex flex-wrap" style="gap: 10px;"></div>
                             </div>
                             <div class="form-group">
@@ -122,79 +136,91 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <button type="button" class="btn btn-success btn-sm" id="btn-add-spec">
+                                <button type="button" class="btn btn-success" id="btn-add-spec">
                                     <i class="fas fa-plus"></i>
                                     Thêm thông số
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <hr>
-                    <h5 class="font-weight-bold mb-3">
-                        SKU
-                    </h5>
-                    <div id="single-sku-section">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>SKU Code</label>
-                                    <input class="form-control" name="sku_code">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Trạng thái SKU</label>
-                                    <select class="form-control" name="sku_status_id">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Giá bán</label>
-                                    <input type="number" class="form-control" name="price">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Giá nhập</label>
-                                    <input type="number" class="form-control" name="cost_price">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Tồn kho</label>
-                                    <input type="number" class="form-control" name="total_stock">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" id="is-service"
-                                        name="is_service">
-                                    <label class="custom-control-label" for="is-service">
-                                        Là dịch vụ
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label>Mô tả sản phẩm</label>
+                        <textarea id="product-description" name="description" class="form-control" rows="10"></textarea>
                     </div>
-                    <hr>
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="custom-control custom-switch">
-                                <input checked type="checkbox" class="custom-control-input" id="is-active"
-                                    name="is_active">
-                                <label class="custom-control-label" for="is-active">
+                        <div class="form-group">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <label class="mb-0 mr-3">
                                     Kích hoạt
                                 </label>
+
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="is-active"
+                                        name="is_active" value="1" checked>
+
+                                    <label class="custom-control-label" for="is-active"></label>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="has-variants"
-                                    name="has_variants">
-                                <label class="custom-control-label" for="has-variants">
-                                    Có biến thể
-                                </label>
+                            {{-- <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#modal-product-variant">
+                                <i class="fas fa-plus mr-1"></i>
+                                Thêm biến thể
+                            </button> --}}
+                            <div class="form-group">
+                                <div class="d-flex align-items-center mb-2">
+                                    <label class="mb-0 mr-3">
+                                        Có biến thể
+                                        <i class="fas fa-info-circle text-primary" data-toggle="tooltip"
+                                            title="Sản phẩm có nhiều biến thể"></i>
+                                    </label>
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input"
+                                            id="product-has-variants">
+                                        <label class="custom-control-label" for="product-has-variants"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12">
+                            <div id="product-variants-section" class="d-none">
+                                <div class="form-group">
+                                    <label>
+                                        Màu sắc
+                                    </label>
+                                    <select class="form-control product-variant-select" multiple
+                                        data-placeholder="Chọn Màu sắc">
+                                        <option value="1">Đỏ</option>
+                                        <option value="2">Trắng</option>
+                                        <option value="3">Xanh</option>
+                                        <option value="4">Đen</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        Kích cỡ
+                                    </label>
+                                    <select class="form-control product-variant-select" multiple
+                                        data-placeholder="Chọn Kích cỡ">
+                                        <option value="5">S</option>
+                                        <option value="6">M</option>
+                                        <option value="7">L</option>
+                                        <option value="8">XL</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        Dung lượng
+                                    </label>
+                                    <select class="form-control product-variant-select" multiple
+                                        data-placeholder="Chọn Dung lượng">
+                                        <option value="9">128GB</option>
+                                        <option value="10">256GB</option>
+                                        <option value="11">512GB</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>

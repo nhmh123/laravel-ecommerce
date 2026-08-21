@@ -69,7 +69,6 @@
     </div>
     <!-- ./wrapper -->
 
-
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/10721708ca.js" crossorigin="anonymous"></script>
     <!-- jQuery -->

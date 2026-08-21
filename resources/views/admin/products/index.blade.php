@@ -3,6 +3,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/viewerjs@1.11.7/dist/viewer.min.css">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 @endpush
 @section('page_title', 'Danh sách sản phẩm')
 @section('content')
@@ -106,14 +108,21 @@
     <x-admin.modal-brand />
     <x-admin.modal-category :categories="$categories" />
     <x-admin.modal-product :categories="$categories" :productTypes="$productTypes" :brands="$brands" />
+    <x-admin.modal-product-variant />
     @push('scripts')
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.jsdelivr.net/npm/viewerjs@1.11.7/dist/viewer.min.js"></script>
+        <script src="https://cdn.tiny.cloud/1/{{ config('services.tinymce.api_key') }}/tinymce/8/tinymce.min.js"
+            referrerpolicy="origin" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.10.9"></script>
+        <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
         @vite('resources/js/admin/category.js')
         @vite('resources/js/admin/brand.js')
         @vite('resources/js/admin/product.js')
+        @vite('resources/js/admin/product-editor.js')
+        @vite('resources/js/admin/product-variant.js')
     @endpush
 @endsection

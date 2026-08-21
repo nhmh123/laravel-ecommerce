@@ -6,6 +6,10 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductTypeController;
 use Illuminate\Support\Facades\Route;
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
 Route::get('/', function () {
     return view('client.layouts.app');
 });
@@ -26,3 +30,5 @@ Route::prefix('admin')->group(function () {
     Route::get('brands/options', [BrandController::class, 'options'])->name('admin.brands.options');
     Route::resource('brands', BrandController::class)->only(['store', 'show', 'update', 'destroy'])->names('admin.brands');
 });
+
+

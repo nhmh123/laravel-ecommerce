@@ -55,6 +55,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ Route::has('admin.product.product_variant') ? route('admin.product.product_variant') : '#' }}"
+                                class="nav-link @if (request()->routeIs('admin.product.product_variant')) active @endif">
+                                <i class="fas fa-layer-group nav-icon"></i>
+                                <p>Biến thể sản phẩm</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ Route::has('admin.product.product_combo') ? route('admin.product.product_combo') : '#' }}"
                                 class="nav-link">
                                 <i class="fas fa-boxes nav-icon"></i>
@@ -66,6 +73,27 @@
                                 class="nav-link">
                                 <i class="fab fa-usps nav-icon"></i>
                                 <p>Dịch vụ</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Users Menu -->
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link @if (request()->routeIs('admin.users.*')) active @endif">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Người dùng
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ Route::has('admin.users.index') ? route('admin.users.index') : '#' }}"
+                                class="nav-link @if (request()->routeIs('admin.users.index')) active @endif">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách người dùng</p>
                             </a>
                         </li>
                     </ul>

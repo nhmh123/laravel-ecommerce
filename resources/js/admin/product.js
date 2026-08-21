@@ -2,6 +2,18 @@ $(function () {
     let productImageViewer = null;
     let productImageFiles = [];
 
+    new AutoNumeric('#cost-price', {
+        digitGroupSeparator: ',',
+        decimalPlaces: 0,
+        unformatOnSubmit: true
+    });
+
+    new AutoNumeric('#selling-price', {
+        digitGroupSeparator: ',',
+        decimalPlaces: 0,
+        unformatOnSubmit: true
+    });
+
     $('#modal-product').modal('show');
 
     $('#modal-product').on('shown.bs.modal', function () {
@@ -52,13 +64,10 @@ $(function () {
         '.btn-delete-image',
         function () {
             const index = Number($(this).data('index'));
-
             productImageFiles.splice(index, 1);
-
             updateProductImageInput();
             renderProductImagePreview();
             updateProductImageButtons();
-
             if (productImageFiles.length === 0) {
                 $('#btn-add-product-images').addClass('d-none');
                 $('#btn-select-product-images').removeClass('d-none');
@@ -100,6 +109,35 @@ $(function () {
     $('#specification-table').on('click', '.remove-spec', function () {
         $(this).closest('tr').remove();
     });
+
+    $('#product-has-variants').on('change', function () {
+        if ($(this).is(':checked')) {
+            $('#product-variants-section')
+                .removeClass('d-none');
+            initProductVariantSelect2();
+        } else {
+            $('#product-variants-section')
+                .addClass('d-none');
+        }
+    });
+
+    function initProductVariantSelect2() {
+        $('#product-variants-section .product-variant-select').each(function () {
+            const $select = $(this);
+            if ($select.hasClass('select2-hidden-accessible')) {
+                return;
+            }
+            $select.select2({
+                theme: 'bootstrap4',
+                width: '100%',
+                placeholder: $select.data('placeholder'),
+                allowClear: true,
+                closeOnSelect: false,
+                minimumResultsForSearch: 0,
+                dropdownParent: $('#modal-product')
+            });
+        });
+    }
 
     function initProductImageViewer() {
         const preview = $('#product-image-preview')[0];
