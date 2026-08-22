@@ -288,4 +288,23 @@ $(function () {
             }
         });
     }
+
+    // product variant list
+    $('.variant-cost, .variant-price').each(function () {
+        new AutoNumeric(this, {
+            digitGroupSeparator: ',',
+            decimalPlaces: 0,
+            suffixText: ' ₫',
+            modifyValueOnWheel: false,
+            unformatOnSubmit: true
+        });
+    });
+
+    const variantImagePreview = $('#variant-image-preview')[0];
+
+    Sortable.create(variantImagePreview, {
+        group: 'sorting',
+        sort: true,
+        animation: 150
+    });
 });
