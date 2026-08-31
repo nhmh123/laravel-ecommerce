@@ -1,18 +1,73 @@
 $(function () {
     let productImageViewer = null;
     let productImageFiles = [];
+    const productImageInput = $('#product-images')[0];
+    const productImagePreview = $('#product-image-preview')[0];
+    productImageViewer = initImageViewer('#product-image-preview', productImageViewer);
 
     new AutoNumeric('#cost-price', {
         digitGroupSeparator: ',',
         decimalPlaces: 0,
+        suffixText: ' ₫',
+        modifyValueOnWheel: false,
         unformatOnSubmit: true
     });
 
     new AutoNumeric('#selling-price', {
         digitGroupSeparator: ',',
         decimalPlaces: 0,
+        suffixText: ' ₫',
+        modifyValueOnWheel: false,
         unformatOnSubmit: true
     });
+
+    function initImageViewer(selector, currentViewer) {
+        const preview = $(selector)[0];
+        if (!preview) {
+            return currentViewer;
+        }
+        if (currentViewer) {
+            currentViewer.destroy();
+            currentViewer = null;
+        }
+        return new Viewer(preview, {
+            toolbar: true,
+            navbar: true,
+            title: true,
+            movable: true,
+            zoomable: true,
+            rotatable: true,
+            scalable: true,
+            transition: true,
+        });
+    }
+
+    Sortable.create(productImagePreview, {
+        sort: true,
+        animation: 150,
+
+        // Bắt sự kiện bắt đầu kéo
+        onStart: function (evt) {
+            console.log("Bắt đầu kéo item tại index:", evt.oldIndex);
+        },
+
+        // Bắt sự kiện khi thay đổi thứ tự trong danh sách
+        onUpdate: function (evt) {
+            console.log("Thứ tự đã thay đổi từ vị trí", evt.oldIndex, "sang vị trí", evt.newIndex);
+            updateImageInput(productImageInput,productImageFiles);
+        },
+
+        // Bắt sự kiện kết thúc kéo thả (thả chuột ra)
+        onEnd: function (evt) {
+            console.log("Đã kết thúc kéo thả!");
+            console.log("Vị trí cũ (oldIndex):", evt.oldIndex);
+            console.log("Vị trí mới (newIndex):", evt.newIndex);
+
+            // Bạn có thể viết thêm logic cập nhật lại mảng dữ liệu hoặc cập nhật lại số thứ tự (STT) hiển thị ở đây
+        }
+    });
+
+    let variantImageViewer = null;
 
     $('#modal-product').modal('show');
 
@@ -26,7 +81,8 @@ $(function () {
 
         productImageFiles = productImageFiles.concat(newFiles);
 
-        updateProductImageInput();
+        // updateProductImageInput();
+        updateImageInput(productImageInput, productImageFiles);
         renderProductImagePreview();
         updateProductImageButtons();
 
@@ -59,20 +115,17 @@ $(function () {
         });
     });
 
-    $('#product-image-preview').on(
-        'click',
-        '.btn-delete-image',
-        function () {
-            const index = Number($(this).data('index'));
-            productImageFiles.splice(index, 1);
-            updateProductImageInput();
-            renderProductImagePreview();
-            updateProductImageButtons();
-            if (productImageFiles.length === 0) {
-                $('#btn-add-product-images').addClass('d-none');
-                $('#btn-select-product-images').removeClass('d-none');
-            }
+    $('#product-image-preview').on('click', '.btn-delete-image', function () {
+        const index = Number($(this).data('index'));
+        productImageFiles.splice(index, 1);
+        updateProductImageInput();
+        renderProductImagePreview();
+        updateProductImageButtons();
+        if (productImageFiles.length === 0) {
+            $('#btn-add-product-images').addClass('d-none');
+            $('#btn-select-product-images').removeClass('d-none');
         }
+    }
     );
 
     $('#btn-add-spec').on('click', function () {
@@ -139,31 +192,8 @@ $(function () {
         });
     }
 
-    function initProductImageViewer() {
-        const preview = $('#product-image-preview')[0];
-        if (!preview) {
-            return;
-        }
-
-        if (productImageViewer) {
-            productImageViewer.destroy();
-            productImageViewer = null;
-        }
-
-        productImageViewer = new Viewer(preview, {
-            toolbar: true,
-            navbar: true,
-            title: true,
-            movable: true,
-            zoomable: true,
-            rotatable: true,
-            scalable: true,
-            transition: true,
-        });
-    }
-
     function updateProductImageInput() {
-        const input = document.getElementById('product-images');
+        const input = $('#product-images')[0];
         const dataTransfer = new DataTransfer();
 
         productImageFiles.forEach(function (file) {
@@ -173,28 +203,43 @@ $(function () {
         input.files = dataTransfer.files;
     }
 
+    function updateImageInput(inputElement, filesArray) {
+        // 1. Console.log trước khi update (danh sách file hiện tại của input)
+        console.log("=== TRƯỚC KHI UPDATE (input.files) ===", inputElement.files);
+
+        const dataTransfer = new DataTransfer();
+
+        filesArray.forEach(function (file) {
+            dataTransfer.items.add(file);
+        });
+
+        inputElement.files = dataTransfer.files;
+
+        // 2. Console.log sau khi update (danh sách file mới được gán vào input)
+        console.log("=== SAU KHI UPDATE (input.files) ===", inputElement.files);
+    }
+
     function updateProductImageButtons() {
         const hasImages = productImageFiles.length > 0;
-
         $('#btn-select-product-images').toggleClass('d-none', hasImages);
         $('#btn-add-product-images').toggleClass('d-none', !hasImages);
         $('#btn-remove-all-product-images').toggleClass('d-none', !hasImages);
     }
 
-    function renderProductImagePreview() {
-        const input = $('#product-images');
-        const $preview = $('#product-image-preview');
+    function renderImagePreview(inputSelector, previewSelector, currentViewer) {
+        const $input = $(inputSelector);
+        const $preview = $(previewSelector);
 
         $preview.empty();
 
-        const files = Array.from(input[0].files);
-        let loaded = 0;
+        const files = Array.from($input[0].files);
 
         if (files.length === 0) {
-            initProductImageViewer();
-            return;
-
+            return initImageViewer(previewSelector, currentViewer);
         }
+
+        let loaded = 0;
+
         files.forEach(function (file, index) {
             if (!file.type.startsWith('image/')) {
                 loaded++;
@@ -204,57 +249,68 @@ $(function () {
             const reader = new FileReader();
 
             reader.onload = function (e) {
-                $preview.append(`
-                <div
-                    class="product-image-item position-relative"
-                    style="width: 120px;"
-                >
-                    <img
-                        src="${e.target.result}"
-                        class="img-thumbnail product-preview-image"
-                        title="${file.name}"
-                        alt="${file.name}"
-                        style="
-                            width: 120px;
-                            height: 120px;
-                            object-fit: cover;
-                            cursor: pointer;
-                        "
-                    >
-                    <span
-                        class="image-order badge badge-primary position-absolute"
-                        style="top: 5px; left: 5px;"
-                    >
-                        ${index + 1}
-                    </span>
-                    <button
-                        type="button"
-                        class="btn btn-danger btn-sm btn-delete-image position-absolute"
-                        data-index="${index}"
-                        style="
-                            top: 5px;
-                            right: 5px;
-                            width: 25px;
-                            height: 25px;
-                            padding: 0;
-                        "
-                    >
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <div class="text-center small text-muted mt-1 text-truncate">
-                        ${file.name}
-                    </div>
-                </div>
-            `);
+                $preview.append(
+                    createImagePreviewItem(file, e.target.result, index)
+                );
+
                 loaded++;
 
                 if (loaded === files.length) {
-                    initProductImageViewer();
+                    currentViewer = initImageViewer(
+                        previewSelector,
+                        currentViewer
+                    );
                 }
             };
 
             reader.readAsDataURL(file);
         });
+        return currentViewer;
+    }
+
+    function createImagePreviewItem(file, src, index) {
+        return `
+        <div class="list-group-item d-flex align-items-center">
+            <div
+                class="mr-3 font-weight-bold text-muted image-order"
+                style="width: 25px;"
+            >
+                ${index + 1}
+            </div>
+
+            <img
+                src="${src}"
+                class="img-thumbnail mr-3 flex-shrink-0"
+                width="80"
+                height="80"
+                style="object-fit: cover; cursor: pointer;"
+                title="${file.name}"
+                alt="${file.name}"
+            >
+
+            <div class="flex-grow-1 mr-3" style="min-width: 0;">
+                <div class="font-weight-bold text-break">
+                    ${file.name}
+                </div>
+
+                <div class="small text-muted">
+                    ${file.size}
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="btn btn-danger btn-sm btn-delete-image flex-shrink-0 ml-auto"
+                data-index="${index}"
+            >
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    `;
+    }
+
+    function renderProductImagePreview() {
+        productImageViewer = renderImagePreview('#product-images', '#product-image-preview', productImageViewer);
     }
 
     function reloadProductBrandOptions(selected = '') {
@@ -275,6 +331,18 @@ $(function () {
         });
     }
 
+    function formatFileSize(bytes) {
+        if (bytes < 1024) {
+            return `${bytes} B`;
+        }
+
+        if (bytes < 1024 * 1024) {
+            return `${(bytes / 1024).toFixed(1)} KB`;
+        }
+
+        return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+    }
+
     function reloadProductCategoryOptions(selected = '') {
         const $select = $('#product-category-id');
 
@@ -289,7 +357,6 @@ $(function () {
         });
     }
 
-    // product variant list
     $('.variant-cost, .variant-price').each(function () {
         new AutoNumeric(this, {
             digitGroupSeparator: ',',

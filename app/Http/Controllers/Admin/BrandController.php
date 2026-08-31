@@ -66,7 +66,7 @@ class BrandController extends Controller
 
     public function options()
     {
-        $brands = Brand::query()->orderBy('name')->get();
+        $brands = Brand::query()->orderBy('created_at')->get();
 
         return view('components.admin.brand-option', compact('brands'));
     }

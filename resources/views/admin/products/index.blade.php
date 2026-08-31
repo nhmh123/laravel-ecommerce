@@ -105,33 +105,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Hình ảnh biến thể -->
-<div class="form-group">
-    <label>Hình ảnh biến thể</label>
-
-    <div class="mb-2">
-        <button type="button" class="btn btn-primary btn-sm">
-            <i class="fas fa-images mr-1"></i>
-            Chọn hình ảnh
-        </button>
-
-        <button type="button" class="btn btn-danger btn-sm">
-            <i class="fas fa-trash mr-1"></i>
-            Xóa tất cả
-        </button>
-    </div>
-
-    <div class="text-danger font-italic small mb-2">
-        <i class="fas fa-info-circle mr-1"></i>
-        Kéo thả để thay đổi thứ tự hình ảnh.
-        Hình ảnh đầu tiên sẽ là hình ảnh chính của biến thể.
-    </div>
-
-
-
-</div>
-
     <x-admin.modal-brand />
     <x-admin.modal-category :categories="$categories" />
     <x-admin.modal-product :categories="$categories" :productTypes="$productTypes" :brands="$brands" />
@@ -153,5 +126,6 @@
         @vite('resources/js/admin/product.js')
         @vite('resources/js/admin/product-editor.js')
         @vite('resources/js/admin/product-variant.js')
+        {{-- @vite('resources/js/admin/product/index.js') --}}
     @endpush
 @endsection

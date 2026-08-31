@@ -63,23 +63,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Giá nhập *</label>
-                                <div class="input-group">
-                                    <input type="text" id="cost-price" name="cost_price" class="form-control"
-                                        placeholder="Nhập giá nhập">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">VNĐ</span>
-                                    </div>
-                                </div>
+                                <input type="text" id="cost-price" name="cost_price" class="form-control"
+                                    placeholder="Nhập giá nhập">
                             </div>
                             <div class="form-group">
                                 <label>Giá bán *</label>
-                                <div class="input-group">
-                                    <input type="text" id="selling-price" name="price" class="form-control"
-                                        placeholder="Nhập giá bán">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">VNĐ</span>
-                                    </div>
-                                </div>
+                                <input type="text" id="selling-price" name="price" class="form-control"
+                                    placeholder="Nhập giá bán">
                             </div>
                             <div class="form-group">
                                 <label>Hình ảnh sản phẩm</label>
@@ -106,9 +96,10 @@
                                         Có thể chọn nhiều hình ảnh.
                                         Hình ảnh số 1 sẽ là hình ảnh chính.
                                         Nhấn vào ảnh để xem phóng to.
+                                        Kéo thả để thay đổi thứ tự.
                                     </div>
                                 </div>
-                                <div id="product-image-preview" class="d-flex flex-wrap" style="gap: 10px;"></div>
+                                <div id="product-image-preview" class="list-group"></div>
                             </div>
                             <div class="form-group">
                                 <label>Thông số kỹ thuật</label>
