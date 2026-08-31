@@ -8,14 +8,40 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <!-- <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-            </div> -->
-            <div class="info">
-                <a href="#" class="d-block">Admin</a>
+        <div class="user-panel mt-3 pb-3 d-flex">
+            <div class="image">
+                <img src="https://img.icons8.com/nolan/1200/user-default.jpg" class="img-circle elevation-2"
+                    alt="User Image">
             </div>
+
+            <div class="info">
+                <a href="#" class="d-block" data-toggle="collapse" data-target="#user-menu" aria-expanded="false"
+                    aria-controls="user-menu">
+                    {{ auth()->user()->name }}
+                    <i class="fas fa-angle-down ml-1"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="user-menu" class="collapse">
+            <ul class="nav nav-pills nav-sidebar flex-column">
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="fas fa-user nav-icon"></i>
+                        <p>Thông tin tài khoản</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <form action="{{ route('admin.logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="nav-link btn btn-link text-left w-100">
+                            <i class="fas fa-sign-out-alt nav-icon"></i>
+                            <p>Đăng xuất</p>
+                        </button>
+                    </form>
+                </li>
+            </ul>
         </div>
 
         <!-- SidebarSearch Form -->
@@ -80,8 +106,7 @@
 
                 <!-- Users Menu -->
                 <li class="nav-item">
-                    <a href="#"
-                        class="nav-link @if (request()->routeIs('admin.users.*')) active @endif">
+                    <a href="#" class="nav-link @if (request()->routeIs('admin.users.*')) active @endif">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Người dùng

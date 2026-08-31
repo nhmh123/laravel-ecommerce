@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthenticationController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
@@ -15,8 +16,12 @@ Route::get('/', function () {
 });
 
 Route::prefix('admin')->group(function () {
+    Route::get('login', [AuthenticationController::class, 'showLogin'])->name('admin.login');
+    Route::post('login', [AuthenticationController::class, 'login'])->name('admin.login.submit');
+    Route::post('logout', [AuthenticationController::class, 'logout'])->name('admin.logout');
+
     Route::get('/', function () {
-        return view('admin.layouts.app');
+        return view('admin.dashboard');
     })->name('admin.dashboard');
 
     Route::get('product-types/options', [ProductTypeController::class, 'options'])->name('admin.product-types.options');
