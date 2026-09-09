@@ -19,6 +19,10 @@ Route::prefix('admin')->group(function () {
     Route::get('login', [AuthenticationController::class, 'showLogin'])->name('admin.login');
     Route::post('login', [AuthenticationController::class, 'login'])->name('admin.login.submit');
     Route::post('logout', [AuthenticationController::class, 'logout'])->name('admin.logout');
+    Route::get('/forgot-password', [AuthenticationController::class, 'showForgotPassword'])->name('admin.password.request');
+    Route::post('/forgot-password', [AuthenticationController::class, 'forgotPassword'])->name('admin.password.submit');
+    Route::get('/reset-password/{token}', [AuthenticationController::class, 'showResetPassword'])->name('password.reset');
+    Route::post('/reset-password', [AuthenticationController::class, 'resetPassword'])->middleware('guest')->name('password.update');
 
     Route::get('/', function () {
         return view('admin.dashboard');
@@ -35,5 +39,3 @@ Route::prefix('admin')->group(function () {
     Route::get('brands/options', [BrandController::class, 'options'])->name('admin.brands.options');
     Route::resource('brands', BrandController::class)->only(['store', 'show', 'update', 'destroy'])->names('admin.brands');
 });
-
-
