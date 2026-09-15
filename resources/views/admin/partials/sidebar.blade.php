@@ -9,6 +9,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 d-flex">
+            @if (auth()->user())
             <div class="image">
                 <img src="https://img.icons8.com/nolan/1200/user-default.jpg" class="img-circle elevation-2"
                     alt="User Image">
@@ -21,6 +22,7 @@
                     <i class="fas fa-angle-down ml-1"></i>
                 </a>
             </div>
+            @endif
         </div>
 
         <div id="user-menu" class="collapse">
